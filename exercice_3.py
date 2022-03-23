@@ -1,4 +1,5 @@
-"""
+import math
+
 a = float(input('Veuillez saisir la valeur de A : '))
 b = float(input('Veuillez saisir la valeur de B : '))
 c = float(input('Veuillez saisir la valeur de C: '))
@@ -14,6 +15,3 @@ else :
     x1 = (-b-math.sqrt(delta)) / (2 * a)
     x2 = (-b + math.sqrt(delta)) / (2 * a)
     print("Les solutions sont : ", format(x1, ".2f"), " et ", format(x2, ".2f"))
-    """
-
-
