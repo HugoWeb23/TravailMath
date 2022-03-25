@@ -4,10 +4,10 @@ import numpy as np
 eq1 = input("Saisissez l'équation 1 (exemple: -2, 12 = 2) ")
 eq2 = input("Saisissez l'équation 2 (exemple: -2, 12 = 2) ")
 
-eq1array = re.split(', | = ', eq1)
+eq1array = re.split(',|=', eq1)
 eq1 = np.asarray(eq1array, dtype=np.float64, order='C')
 
-eq2array = re.split(', | = ', eq2)
+eq2array = re.split(',|=', eq2)
 eq2 = np.asarray(eq2array, dtype=np.float64, order='C')
 
 mat = []

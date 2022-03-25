@@ -5,13 +5,13 @@ eq1 = input("Saisissez l'équation 1 (exemple: -2, 12, 45 = 2) ")
 eq2 = input("Saisissez l'équation 2 (exemple: -2, 12, 45 = 2) ")
 eq3 = input("Saisissez l'équation 3 (exemple: -2, 12, 45 = 2) ")
 
-eq1array = re.split(', | = ', eq1)
+eq1array = re.split(',|=', eq1)
 eq1 = np.asarray(eq1array, dtype=np.float64, order='C')
 
-eq2array = re.split(', | = ', eq2)
+eq2array = re.split(',|=', eq2)
 eq2 = np.asarray(eq2array, dtype=np.float64, order='C')
 
-eq3array = re.split(', | = ', eq3)
+eq3array = re.split(',|=', eq3)
 eq3 = np.asarray(eq3array, dtype=np.float64, order='C')
 
 mat = []

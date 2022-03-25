@@ -1,9 +1,28 @@
 import numpy as np
 
 nc_mat1 = int(input("Entrez le nombre de colonnes de la matrice 1 : "))
+
+while(nc_mat1 < 1 or nc_mat1 > 4):
+    print("Vous devez saisir un chiffre entre 1 et 4")
+    nc_mat1 = int(input("Entrez le nombre de colonnes de la matrice 1 : "))
+
 nl_mat1 = int(input("Entrez le nombre de lignes de la matrice 1 : "))
+
+while(nl_mat1 < 1 or nl_mat1 > 4):
+    print("Vous devez saisir un chiffre entre 1 et 4")
+    nl_mat1 = int(input("Entrez le nombre de lignes de la matrice 1 : "))
+
 nc_mat2 = int(input("Entrez le nombre de colonnes de la matrice 2 : "))
+
+while(nc_mat2 < 1 or nc_mat2 > 4):
+    print("Vous devez saisir un chiffre entre 1 et 4")
+    nc_mat2 = int(input("Entrez le nombre de colonnes de la matrice 2 : "))
+
 nl_mat2 = int(input("Entrez le nombre de lignes de la matrice 2 : "))
+
+while(nl_mat2 < 1 or nl_mat2 > 4):
+    print("Vous devez saisir un chiffre entre 1 et 4")
+    nl_mat2 = int(input("Entrez le nombre de lignes de la matrice 2 : "))
 
 if nc_mat1 != nl_mat2:
     print("Incompatibilité des matrices !")
