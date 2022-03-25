@@ -5,7 +5,10 @@ print("Que souhaitez-vous faire ?\nChiffrer un message => 1\nDéchiffrer un mess
 type = int(input("Veuillez saisir le numéro de l'action à effectuer : "))
 
 if type == 1:
-    message = input("Veuillez saisir le message à chiffrer : ")
+    message = input("Veuillez saisir le message à chiffrer (max 80 caractères) : ")
+    while len(message) == 0 or len(message) > 80:
+        print("Le message doit respecter les règles suivantes : min 1 caractère et max 80 caractères")
+        message = input("Veuillez saisir le message à chiffrer : ")
     chiffrage = str()
     for lettre in message:
         if lettre == ' ':
