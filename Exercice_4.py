@@ -54,10 +54,18 @@ def displayResult(result):
     return string
 
 def addPoly(poly1, poly2):
-    result = poly1
     if len(poly1) != len(poly2):
         print("Les polynômes doivent avoir la même taille")
         quit()
+
+    sumpoly1 = []
+    for p in poly1: # Additionne les monômes de même exposant au sein du polynôme 1
+        index = findIndexPolyByExp(sumpoly1, p[1])
+        if index != -1:
+            sumpoly1[index][0] = sumpoly1[index][0] + p[0]
+        else:
+            sumpoly1.append(p)
+    result = sumpoly1
 
     for position in range(len(poly1)):
         index = findIndexPolyByExp(result, poly2[position][1])
