@@ -22,18 +22,18 @@ def displayResult(result):
     string = ""
     count = 0
     for mon in result:
-        if mon[1] == 1:
-            if mon[0] > 1 or mon[0] < -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + " "
-            elif mon[0] == 1 or mon[0] == -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "")+base + " "
-        elif mon[1] == 0:
-            string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + " "
+        if mon[1] == 1: # Si l'exposant est 1 (ex: 5x)
+            if mon[0] > 1 or mon[0] < -1: # Si le coefficient est supérieur à 1 ou inférieur à -1
+                string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + " " # On affiche le coefficient et la base (ex: 6x)
+            elif mon[0] == 1 or mon[0] == -1: # Si le coefficient est égal à 1 ou à -1
+                string += ("+" if count > 0 and mon[0] > 0 else "-")+base + " " # On affiche seulement la base
+        elif mon[1] == 0: # Si l'exposant est 0 (nombre sans base)
+            string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + " " # On affiche seulement le nombre
         else:
             if mon[0] > 1 or mon[0] < -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + "^" + str(mon[1])+" "
+                string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + "^" + str(mon[1])+" " # Ex: 5x^5
             elif mon[0] == 1 or mon[0] == -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
+                string += ("+" if count > 0 and mon[0] > 0 else "-")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
         count += 1
     return string
 
