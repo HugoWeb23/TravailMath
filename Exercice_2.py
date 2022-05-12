@@ -59,7 +59,7 @@ if type == 1:
         Blocs.append(C)
         bloc+=1
 
-    s = ",".join(Blocs)
+    s = ','.join(str(x) for x in Blocs)
     print(f"Affichage simplifié des blocs : {s}")
 
 if type == 2:
@@ -69,11 +69,13 @@ if type == 2:
     r = int(input("Veuillez saisir la clé publique : "))
 
     B = re.split(',', BlocsCryptes)
-    Blocs = np.asarray(B, dtype=np.float64, order='C')
+    Blocs = np.asarray(B, dtype=np.int64, order='C')
+    print(Blocs)
 
     LettresDecryptees = []
     for message in Blocs:
         MessageDecrypte = message**d % r
+        print(f"{message} ** {d} % {r} = {MessageDecrypte}")
         LettresDecryptees.append(chr(MessageDecrypte))
     D = "".join(LettresDecryptees)
     print(f"Message décrypté : {D}")
