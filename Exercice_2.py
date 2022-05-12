@@ -1,3 +1,6 @@
+import re
+import numpy as np
+
 def isprime(num):
     for n in range(2,int(num**0.5)+1):
         if num%n==0:
@@ -8,9 +11,11 @@ type = int(input("Que voulez-vous faire ?\nCrypter un message => 1\nDécrypter u
 
 if type == 1:
 
-    m = input("Veuillez saisir une lettre minuscule qui va servir de message : ")
-    print(f"Le code ASCII de la lettre est : {ord(m)}")
-    m = ord(m)
+    lettres = []
+
+    m = input("Veuillez saisir une phrase qui va servir de message : ")
+    for lettre in m:
+        lettres.append(ord(lettre))
 
     p = int(input("Veuillez définir P (nombre premier) : "))
     while isprime(p) == False:
@@ -46,21 +51,30 @@ if type == 1:
     print(f"Clé publique (P * Q) => ({p} * {q}) : {r}")
     print(f"Clé privée : {d}")
 
-    C = m**e % r
+    Blocs = []
+    bloc = 1
+    for m in lettres:
+        C = m**e % r
+        print(f"Calcul du bloc {bloc} ({m}^{e} modulo {r}): {C}")
+        Blocs.append(C)
+        bloc+=1
 
-    print(f"Calcul du message crypté C ({m}^{e} modulo {r}): {C}")
+    s = ",".join(Blocs)
+    print(f"Affichage simplifié des blocs : {s}")
 
 if type == 2:
 
-    NombreBlocs = int(input("Veuillez saisir le nombre de blocs : "))
+    BlocsCryptes = input("Veuillez saisir les blocs séparés par une virgule (ex: 50,85,45) : ")
     d = int(input("Veuillez saisir la clé privée : "))
     r = int(input("Veuillez saisir la clé publique : "))
-    Blocs = []
-    for bloc in range(NombreBlocs):
-        saisie = int(input(f"Veuillez saisir le bloc {bloc + 1} : "))
-        Blocs.append(saisie)
 
+    B = re.split(',', BlocsCryptes)
+    Blocs = np.asarray(B, dtype=np.float64, order='C')
+
+    LettresDecryptees = []
     for message in Blocs:
         MessageDecrypte = message**d % r
-        print(f"Message décrypté ({message}^{d} modulo {r}) : {MessageDecrypte}")
+        LettresDecryptees.append(chr(MessageDecrypte))
+    D = "".join(LettresDecryptees)
+    print(f"Message décrypté : {D}")
 
