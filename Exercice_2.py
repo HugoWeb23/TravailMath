@@ -69,13 +69,11 @@ if type == 2:
     r = int(input("Veuillez saisir la clé publique : "))
 
     B = re.split(',', BlocsCryptes)
-    Blocs = np.asarray(B, dtype=np.int64, order='C')
-    print(Blocs)
+    Blocs = map(int, B)
 
     LettresDecryptees = []
     for message in Blocs:
         MessageDecrypte = message**d % r
-        print(f"{message} ** {d} % {r} = {MessageDecrypte}")
         LettresDecryptees.append(chr(MessageDecrypte))
     D = "".join(LettresDecryptees)
     print(f"Message décrypté : {D}")
