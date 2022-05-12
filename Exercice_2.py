@@ -51,8 +51,16 @@ if type == 1:
     print(f"Calcul du message crypté C ({m}^{e} modulo {r}): {C}")
 
 if type == 2:
-    MessageCrypte = int(input("Veuillez saisir le message crypté : "))
+
+    NombreBlocs = int(input("Veuillez saisir le nombre de blocs : "))
     d = int(input("Veuillez saisir la clé privée : "))
     r = int(input("Veuillez saisir la clé publique : "))
-    Message = MessageCrypte**d % r
-    print(f"Message décrypté ({MessageCrypte}^{d} modulo {r}) : {Message}")
+    Blocs = []
+    for bloc in range(NombreBlocs):
+        saisie = int(input(f"Veuillez saisir le bloc {bloc + 1} : "))
+        Blocs.append(saisie)
+
+    for message in Blocs:
+        MessageDecrypte = message**d % r
+        print(f"Message décrypté ({message}^{d} modulo {r}) : {MessageDecrypte}")
+
