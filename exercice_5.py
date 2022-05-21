@@ -3,13 +3,24 @@ from matplotlib_venn import venn3, venn3_unweighted
 from random import *
 from functools import reduce
 
-nombres = []
-multiples = [2, 5, 7]
+def GenererMultiples():
+    multiples = []
+    while len(multiples) != 3:
+        random = randint(2, 9)
+        if not (random in multiples):
+            multiples.append(random)
+    return multiples
 
-while len(nombres) != 30:
-    random = randint(1, 200)
-    if not (random in nombres):
-        nombres.append(random)
+def GenererNombres():
+    nombres = []
+    while len(nombres) != 30:
+        random = randint(1, 200)
+        if not (random in nombres):
+            nombres.append(random)
+    return nombres
+
+nombres = GenererNombres()
+multiples = GenererMultiples()
 
 A = []
 B = []

@@ -12,6 +12,9 @@ Représentation des monômes dans le programme :
 base = input("Veuillez saisir la base des polynômes : ").lower()
 nb_mon1 = int(input("Veuillez saisir le nombre de monômes dans le polynôme 1 : "))
 nb_mon2 = int(input("Veuillez saisir le nombre de monômes dans le polynôme 2 : "))
+if nb_mon1 != nb_mon2:
+    print("Les polynômes doivent avoir la même taille")
+    quit()
 poly1 = []
 poly2 = []
 
@@ -63,10 +66,6 @@ def displayResult(result):
     return string
 
 def addPoly(poly1, poly2):
-    if len(poly1) != len(poly2):
-        print("Les polynômes doivent avoir la même taille")
-        quit()
-
     sumpoly1 = []
     for p in poly1: # Additionne les monômes de même exposant au sein du polynôme 1
         index = findIndexPolyByExp(sumpoly1, p[1])
