@@ -84,4 +84,4 @@ def addPoly(poly1, poly2):
     result.sort(key=polySorting, reverse=True)
     return displayResult(result)
 
-print(addPoly(poly1, poly2))
+print("Résultat (addition de deux polynômes) : "+addPoly(poly1, poly2))
