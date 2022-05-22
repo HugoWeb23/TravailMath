@@ -3,24 +3,16 @@ from matplotlib_venn import venn3, venn3_unweighted
 from random import *
 from functools import reduce
 
-def GenererMultiples():
-    multiples = []
-    while len(multiples) != 3:
-        random = randint(2, 9)
-        if not (random in multiples):
-            multiples.append(random)
-    return multiples
-
-def GenererNombres():
+def GenererNombres(limite, debut, fin):
     nombres = []
-    while len(nombres) != 30:
-        random = randint(1, 200)
+    while len(nombres) != limite:
+        random = randint(debut, fin)
         if not (random in nombres):
             nombres.append(random)
     return nombres
 
-nombres = GenererNombres()
-multiples = GenererMultiples()
+nombres = GenererNombres(30, 1, 200)
+multiples = GenererNombres(3, 2, 9)
 
 A = []
 B = []
@@ -84,6 +76,6 @@ for a in range(3):
     label = f"Divisible par {multiples[a]}"
     labels.append(label)
 
-venn3_unweighted(subsets=items,set_labels=labels,alpha=0.5)
+venn3_unweighted(subsets=items,set_labels=labels,alpha=0.6)
 plot.title(Dehors)
 plot.show()
