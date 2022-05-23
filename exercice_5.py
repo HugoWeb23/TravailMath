@@ -11,7 +11,7 @@ def GenererNombres(limite, debut, fin):
             nombres.append(random)
     return nombres
 
-nombres = GenererNombres(30, 1, 200)
+nombres = GenererNombres(25, 1, 200)
 multiples = GenererNombres(3, 2, 9)
 
 A = []

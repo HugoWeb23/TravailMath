@@ -47,5 +47,4 @@ for monome in range(nb_mon):
     split = np.asarray(split, dtype=np.int32, order='C')
     poly.append(split)
 
-print(poly)
-print(multipliPolyByCoef(poly))
+print(f"Résultat (produit d'un polynôme par un coefficient réel) : {multipliPolyByCoef(poly)}")

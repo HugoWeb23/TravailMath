@@ -33,4 +33,4 @@ x = DX / D
 y = DY / D
 z = DZ / D
 
-print(f'X = {round(x, 2)}, Y = {round(y, 2)}, Z = {round(z, 2)}')
+print(f'Résultat (équations à trois inconnues) : X = {round(x, 2)}, Y = {round(y, 2)}, Z = {round(z, 2)}')

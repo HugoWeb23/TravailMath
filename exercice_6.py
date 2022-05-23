@@ -20,4 +20,4 @@ DY = mat[0][0] * mat[1][2] - mat[0][2] * mat[1][0]
 x = DX / D
 y = DY / D
 
-print(f'X = {round(x, 2)}, Y = {round(y, 2)}')
+print(f'Résultat (deux équations à deux inconnues) : X = {round(x, 2)}, Y = {round(y, 2)}')
