@@ -17,7 +17,7 @@ def displayResult(result):
             if mon[0] > 1 or mon[0] < -1: # Si le coefficient est supérieur à 1 ou inférieur à -1
                 string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + " " # On affiche le coefficient et la base (ex: 6x)
             elif mon[0] == 1 or mon[0] == -1: # Si le coefficient est égal à 1 ou à -1
-                string += ("+" if count > 0 and mon[0] > 0 else "-")+base + " " # On affiche seulement la base
+                string += ("+" if count > 0 and mon[0] > 0 else "-" if mon[0] < 0 else "") + base + " "  # On affiche seulement la base
         elif mon[1] == 0: # Si l'exposant est 0 (nombre sans base)
             string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + " " # On affiche seulement le nombre
         else:
