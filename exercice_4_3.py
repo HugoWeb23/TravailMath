@@ -24,7 +24,7 @@ def displayResult(result):
             if mon[0] > 1 or mon[0] < -1:
                 string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + "^" + str(mon[1])+" " # Ex: 5x^5
             elif mon[0] == 1 or mon[0] == -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "-")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
+                string += ("+" if count > 0 and mon[0] > 0 else "-" if mon[0] < 0 else "")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
         count += 1
     return string
 

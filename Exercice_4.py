@@ -12,9 +12,7 @@ Représentation des monômes dans le programme :
 base = input("Veuillez saisir la base des polynômes : ").lower()
 nb_mon1 = int(input("Veuillez saisir le nombre de monômes dans le polynôme 1 : "))
 nb_mon2 = int(input("Veuillez saisir le nombre de monômes dans le polynôme 2 : "))
-if nb_mon1 != nb_mon2:
-    print("Les polynômes doivent avoir la même taille")
-    quit()
+
 poly1 = []
 poly2 = []
 
@@ -61,7 +59,7 @@ def displayResult(result):
             if mon[0] > 1 or mon[0] < -1:
                 string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + "^" + str(mon[1])+" " # Ex: 5x^5
             elif mon[0] == 1 or mon[0] == -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "-")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
+                string += ("+" if count > 0 and mon[0] > 0 else "-" if mon[0] < 0 else "")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
         count += 1
     return string
 
@@ -75,7 +73,7 @@ def addPoly(poly1, poly2):
             sumpoly1.append(p)
     result = sumpoly1
 
-    for position in range(len(poly1)):
+    for position in range(len(poly2)):
         index = findIndexPolyByExp(result, poly2[position][1])
         if index != -1:
             result[index][0] = result[index][0] + poly2[position][0]

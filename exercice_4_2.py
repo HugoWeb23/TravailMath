@@ -33,7 +33,7 @@ def displayResult(result):
             if mon[0] > 1 or mon[0] < -1:
                 string += ("+" if count > 0 and mon[0] > 0 else "")+str(mon[0]) + base + "^" + str(mon[1])+" " # Ex: 5x^5
             elif mon[0] == 1 or mon[0] == -1:
-                string += ("+" if count > 0 and mon[0] > 0 else "-")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
+                string += ("+" if count > 0 and mon[0] > 0 else "-" if mon[0] < 0 else "")+base + "^" + str(mon[1]) + " " # Si le coefficient est égal à 1 je le supprime, ce qui donne (ex: 1x^5 => x^5)
         count += 1
     return string
 
@@ -49,7 +49,6 @@ def multipliPoly(poly1, poly2):
     for polyOneIndex in range(len(poly1)):
         for polyTwoIndex in range(len(poly2)):
             result.append([poly1[polyOneIndex][0] * poly2[polyTwoIndex][0], poly1[polyOneIndex][1] + poly2[polyTwoIndex][1]])
-
     sumpoly1 = []
     for p in result:  # Additionne les termes semblables
         index = findIndexPolyByExp(sumpoly1, p[1])
@@ -78,6 +77,5 @@ for polynome in range(2):
             poly1.append(split)
         elif polynome == 1:
             poly2.append(split)
-
 
 print(f"Résultat (produit de deux polynômes) : {multipliPoly(poly1, poly2)}")
