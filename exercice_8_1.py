@@ -32,4 +32,6 @@ for ligne in range(nl):
     for colonne in range(nc):
         result[ligne][colonne] = mat[ligne][colonne] + mat2[ligne][colonne]
 
-print(f"Résultat (addition de deux matrices) : {result}")
+print("Résultat (addition de deux matrices) :\n")
+for i in range(len(result)):
+    print(result[i])

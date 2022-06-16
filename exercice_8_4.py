@@ -32,4 +32,6 @@ for ligne in range(nl):
     for colonne in range(nc):
         result[ligne][colonne] = mat[colonne][ligne]
 
-print(f"Résultat (matrice transposée) : {result}")
+print("Résultat (matrice transposée) :\n")
+for i in range(len(result)):
+    print(result[i])

@@ -29,4 +29,6 @@ for ligne in range(nl):
     for colonne in range(nc):
         result[ligne][colonne] = mat[ligne][colonne] * scalaire
 
-print(f"Résultat (multiplication par un scalaire de {scalaire}) : {result}")
+print(f"Résultat (multiplication par un scalaire de {scalaire}) :\n")
+for i in range(len(result)):
+    print(result[i])

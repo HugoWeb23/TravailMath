@@ -53,4 +53,6 @@ for colonne in range(nc_mat2):
             somme += mat1[ligne][sous_ligne] * mat2[sous_ligne][colonne]
         result[ligne][colonne] = somme
 
-print(f"Résultat (multiplication de deux matrices) :  {result}")
+print("Résultat (multiplication de deux matrices) :\n")
+for i in range(len(result)):
+    print(result[i])
